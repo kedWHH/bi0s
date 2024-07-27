@@ -187,5 +187,13 @@ got password : tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q
 
 Technically I'm done but I'm going to finish all of them just for good measure
 Since you guys said I will be compared to other applicants
+Umm
+Well at this point I made some mistakes regarding files
+But the idea is I finished till bandit 32
+Don't need to take me at my word
+Just.. yea
+Saying this because I'll cry if I did all that for nothing
+
+Thanks a lot for considering me guys :>
 
 ===================================================================================================
