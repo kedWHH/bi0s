@@ -94,3 +94,98 @@ cat data.txt | base64 -d
 
 got password : dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
 ===================================================================================================
+#Level 11 -> 12
+tr to undo rot 13 is fun
+cat data.txt | tr 'N-ZA-Mn-za-m' 'A-Za-z'
+
+got password : 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+===================================================================================================
+#Level 12 -> 13
+file <file> is a GODSEND
+Just keep reading and redoing, whether it's tar -xvf or gzip -d or bzip2 -d
+And then we get:
+
+got password : FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
+===================================================================================================
+#Level 13 -> 14
+Nothing to be done, just copied over the ssh key to my system.
+===================================================================================================
+#Level 14 -> 15
+Remembered to chmod 600 for my key, that's a cool addition to the ssh requirements
+Added -i bandit14.key to my ssh login and I'm in :D
+
+cat /etc/bandit_pass/bandit14 gives password for this level
+MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
+
+telnet localhost 30000
+then i sent the password and got back a correct!
+Yay!
+
+got password : 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+===================================================================================================
+#Level 15 -> 16
+openssl s client usage for this one
+openssl s_client -connect localhost:30001
+
+got password : kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
+===================================================================================================
+#Level 16 -> 17
+Found open servers using do loop and checking for a response
+And then sent the ssl encrypted message to each of them
+for i in {31046,31518,31691,31790,31960} ; do cat /etc/bandit_pass/bandit16 | openssl s_client -connect localhost:$i -quiet; done
+
+got ssh key :O
+===================================================================================================
+#Level 17 -> 18
+diff passwords.old passwords.new
+I mean
+Ok.
+
+got password : x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO
+===================================================================================================
+#Level 18 -> 19
+And now for the WORST way to ensure a user doesn't log in
+ssh command with a "cat readme" is literally dead ez
+
+ssh bandit18@bandit.labs.overthewire.org -p 2220 "cat readme"
+
+got password : cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
+===================================================================================================
+#Level 19 -> 20
+Ok this one was really fun
+
+./* cat /etc/bandit_pass/bandit20
+
+But it seems so short
+I guess this is a warning of never writing documentation for dangerous tools?
+
+got password : 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
+===================================================================================================
+#Level 20 -> 21
+
+Opened the ssh in 2 sessions, on "server" side:
+echo "0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO" | netcat -l -p 1234
+On "client" side:
+./suconnect 1234
+
+got password : EeoULMCra2q0dSkYj561DX7s1CpBuOBt
+===================================================================================================
+#Level 21 -> 22
+Found cronjob_bandit22 and that lead to 
+/usr/bin/cronjob_bandit22.sh and then I found the file it's giving the password to, and that gave me
+
+got password : tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q
+===================================================================================================
+#level 22 -> 23
+Found another cronjob leading to another sh [/usr/bin/cronjob_bandit23.sh]
+It seems complicated at first when trying to figure out whether you should do an md5sum to get mytarget
+
+Except you can just run it
+
+got password : tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q
+===================================================================================================
+
+Technically I'm done but I'm going to finish all of them just for good measure
+Since you guys said I will be compared to other applicants
+
+===================================================================================================
